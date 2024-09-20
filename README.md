@@ -1,14 +1,14 @@
 
 ```mermaid
 classDiagram
-class Musica {
--nome: String
--artista: String
--duracao: double
-+Musica(String nome, String artista, double duracao)
-+getters()
-+setters()
-}
+    class Musica {
+    -nome: String
+    -artista: String
+    -duracao: double
+    +Musica(String nome, String artista, double duracao)
+    +getters()
+    +setters()
+    }
 
     class Contato {
         -ddd: int
@@ -58,8 +58,9 @@ class Musica {
 
     class iPhone {
     }
-
+    Musica --> AppMusic
     AppMusic --> ReprodutorMusical
+    Contato --> Telefone
     Telefone --> AparelhoTelefonico
     Safari --> NavegadorInternet
     iPhone --> ReprodutorMusical
