@@ -1,71 +1,68 @@
+
+```mermaid
 classDiagram
 class Musica {
 -nome: String
 -artista: String
 -duracao: double
-+Musica(nome: String, artista: String, duracao: double)
-+getters() and setters()
++Musica(String nome, String artista, double duracao)
++getters()
++setters()
 }
 
     class Contato {
-      -ddd: int
-      -numero: int
-      -donoNumero: String
-      +Contato(ddd: int, numero: int, donoNumero: String)
-      +getters() and setters()
-    }
-
-    class Telefone {
-      +ligar(contato : Contato)
-      +atender()
-      +iniciarCorreioVoz()
-    }
-
-    class Safari {
-      -abasAbertas: ArrayList~String~
-      +exibirPagina(url : String)
-      +adicionarNovaAba(url : String)
-      +atualizarPagina()
-    }
-
-    interface ReprodutorMusical {
-      +tocar(musica : Musica)
-      +pausar()
-      +selecionarMusica(musica : Musica)
-    }
-
-    interface AparelhoTelefonico {
-      +ligar(contato : Contato)
-      +atender()
-      +iniciarCorreioVoz()
-    }
-
-    interface NavegadorInternet {
-      +exibirPagina(url : String)
-      +adicionarNovaAba(url : String)
-      +atualizarPagina()
+        -ddd: int
+        -numero: int
+        -donoNumero: String
+        +Contato(int ddd, int numero, String donoNumero)
+        +getters()
+        +setters()
     }
 
     class AppMusic {
-      +tocar(musica : Musica)
-      +pausar()
-      +selecionarMusica(musica : Musica)
+        +tocar(Musica musica)
+        +pausar()
+        +selecionarMusica(Musica musica)
+    }
+
+    class Telefone {
+        +ligar(Contato contato)
+        +atender()
+        +iniciarCorreioVoz()
+    }
+
+    class Safari {
+        -abasAbertas: ArrayList~String~
+        +exibirPagina(String url)
+        +adicionarNovaAba(String url)
+        +atualizarPagina()
+    }
+
+    class ReprodutorMusical {
+        +tocar(Musica musica)
+        +pausar()
+        +selecionarMusica(Musica musica)
+    }
+
+    class AparelhoTelefonico {
+        +ligar(Contato contato)
+        +atender()
+        +iniciarCorreioVoz()
+    }
+
+    class NavegadorInternet {
+        +exibirPagina(String url)
+        +adicionarNovaAba(String url)
+        +atualizarPagina()
     }
 
     class iPhone {
-      ++ Musica
-      ++ AppMusic
-      ++ Contato
-      ++ Telefone
-      ++ Safari
     }
 
-    Musica --|> AppMusic : uses
-    AppMusic ..> ReprodutorMusical : implements
-    Contato --|> Telefone : uses
-    Telefone ..> AparelhoTelefonico : implements
-    Safari ..> NavegadorInternet : implements
-
-    ReprodutorMusical <|.. AppMusic : implements
-    AparelhoTelefonico <|.. Telefone : implements
-    NavegadorInternet <|.. Safari : implements
+    AppMusic --> ReprodutorMusical
+    Telefone --> AparelhoTelefonico
+    Safari --> NavegadorInternet
+    iPhone --> ReprodutorMusical
+    iPhone --> AparelhoTelefonico
+    iPhone --> NavegadorInternet
+```
