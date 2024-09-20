@@ -17,7 +17,7 @@ public class IPhone {
         Safari safari = new Safari();
         safari.exibirPagina("https://github.com");
         safari.atualizarPagina();
-        safari.adicionarNovaAba();
+        safari.adicionarNovaAba("https://instagram.com");
 
         Contato luiz = new Contato(91,980426870, "Luiz Fabio Santana");
         Telefone telefone = new Telefone();

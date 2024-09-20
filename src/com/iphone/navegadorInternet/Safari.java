@@ -1,19 +1,22 @@
 package com.iphone.navegadorInternet;
-
+import java.util.*;
 public class Safari implements Navegadorinternet{
+    private ArrayList<String> abasAbertas = new ArrayList<String>();
     @Override
-    public void exibirPagina(String url) {
-        System.out.println("Exibindo " + url);
+    public void adicionarNovaAba(String url) {
+        abasAbertas.add(url);
+        System.out.println("Nova aba aberta: " + url);
     }
 
     @Override
-    public void adicionarNovaAba() {
-        System.out.println("Foi adicionado uma nova aba");
+    public void exibirPagina(String url) {
+        abasAbertas.add(url);
+        System.out.println("Exibindo página: " + url);
     }
 
     @Override
     public void atualizarPagina() {
         System.out.println("Atualizando...");
-        System.out.println("página atualizada");
+        System.out.println("Página atualizada");
     }
 }
